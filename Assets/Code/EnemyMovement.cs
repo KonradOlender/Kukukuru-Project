@@ -32,9 +32,9 @@ public class EnemyMovement : MonoBehaviour
         }
         playerDirectionVector = (player.transform.position - transform.position).normalized;
         if (canMove == true)
-            rb.velocity = playerDirectionVector * movementSpeed;
+            rb.linearVelocity = playerDirectionVector * movementSpeed;
         else
-            rb.velocity = new Vector2(0, 0);
+            rb.linearVelocity = new Vector2(0, 0);
     }
 
     public void OnHitEffect()

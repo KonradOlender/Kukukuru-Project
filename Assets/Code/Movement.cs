@@ -57,7 +57,7 @@ public class Movement : MonoBehaviour
         {
             return;
         }
-        rb.velocity = (velocity * currentMoveSpeed);
+        rb.linearVelocity = (velocity * moveSpeed);
     }
 
     private IEnumerator Dash()
@@ -67,7 +67,7 @@ public class Movement : MonoBehaviour
 
         //dashing mechanic
 
-        rb.velocity = rb.velocity * dashingPower;
+        rb.linearVelocity = rb.linearVelocity * dashingPower;
         //
         
         yield return new WaitForSeconds(dashingTime);
