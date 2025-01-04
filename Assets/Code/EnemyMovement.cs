@@ -30,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        playerDirectionVector = (player.transform.position - transform.position).normalized;
+        //playerDirectionVector = (player.transform.position - transform.position).normalized;
         if (canMove == true)
             rb.linearVelocity = playerDirectionVector * movementSpeed;
         else

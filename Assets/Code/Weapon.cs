@@ -31,15 +31,23 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        impactSound.pitch += 0.1f;
-        impactSound.Play();
-        //comboSound.pitch += 0.1f;
-        //comboSound.Play();
-        enemyMovementScript = collision.GetComponent<EnemyMovement>();
-        enemyMovementScript.OnHitEffect();
-        cinemachineImpulse.GenerateImpulseWithForce(cameraShakeForce);
-        weaponOffset.Bounce();
-        StartCoroutine(Cooldown());
+        if(collision.gameObject.tag == "Obstacle")
+        {
+            weaponOffset.Bounce();
+            StartCoroutine(Cooldown());
+        }
+        else
+        {
+            impactSound.pitch += 0.1f;
+            impactSound.Play();
+            //comboSound.pitch += 0.1f;
+            //comboSound.Play();
+            enemyMovementScript = collision.GetComponent<EnemyMovement>();
+            enemyMovementScript.OnHitEffect();
+            cinemachineImpulse.GenerateImpulseWithForce(cameraShakeForce);
+            weaponOffset.Bounce();
+            StartCoroutine(Cooldown());
+        }
     }
 
     private IEnumerator Cooldown()
