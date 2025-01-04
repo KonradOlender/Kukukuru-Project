@@ -11,6 +11,9 @@ public class Weapon : MonoBehaviour
 
     public float cameraShakeForce = 0.2f;
 
+    public AudioSource impactSound;
+    public AudioSource comboSound;
+
     private CinemachineImpulseSource cinemachineImpulse;
     private EnemyMovement enemyMovementScript;
 
@@ -28,6 +31,10 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        impactSound.pitch += 0.1f;
+        impactSound.Play();
+        //comboSound.pitch += 0.1f;
+        //comboSound.Play();
         enemyMovementScript = collision.GetComponent<EnemyMovement>();
         enemyMovementScript.OnHitEffect();
         cinemachineImpulse.GenerateImpulseWithForce(cameraShakeForce);

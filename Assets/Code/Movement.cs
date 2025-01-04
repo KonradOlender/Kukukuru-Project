@@ -7,9 +7,13 @@ public class Movement : MonoBehaviour
     Vector2 velocity;
     Rigidbody2D rb;
 
+    public int health = 5;
     public bool canMove = true;
     public float cantMoveCooldownInSeconds = 0.5f;
     public float moveSpeed;
+    public float sprintMoveSpeed;
+
+    private float currentMoveSpeed;
 
     public bool isDashing;
     public bool canDash = true;
@@ -21,6 +25,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        currentMoveSpeed = moveSpeed;
     }
 
     // Update is called once per frame
@@ -35,6 +40,15 @@ public class Movement : MonoBehaviour
         {
             StartCoroutine(Dash());
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            currentMoveSpeed = sprintMoveSpeed;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) && canDash)
+        {
+            currentMoveSpeed = moveSpeed;
+        }
     }
 
     private void FixedUpdate()
@@ -43,7 +57,7 @@ public class Movement : MonoBehaviour
         {
             return;
         }
-        rb.velocity = (velocity * moveSpeed);
+        rb.velocity = (velocity * currentMoveSpeed);
     }
 
     private IEnumerator Dash()
