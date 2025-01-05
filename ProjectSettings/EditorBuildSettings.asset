@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KonradTestScene.unity
     guid: 80eb53a1f42a8214b954b94302e1f377
+  - enabled: 1
+    path: Assets/Levels/Menu.unity
+    guid: d29ac3e76e169b34bbfe6c7967896f47
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

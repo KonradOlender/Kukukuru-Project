@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class HealthPickUp : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Movement player;
+    public int healAmount = 1;
     void Start()
     {
         
@@ -14,8 +15,12 @@ public class HealthPickUp : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.tag())
+        if (collision.gameObject.tag == "Player")
+        {
+            player.gameObject.GetComponent<Movement>().HealDamage(healAmount);
+            Destroy(this.gameObject);
+        }
     }
 }

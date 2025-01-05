@@ -30,6 +30,11 @@ public class Movement : MonoBehaviour
     public GameObject gameOverScreen;
 
     public AudioSource takeDamageSound;
+    public AudioSource healSound;
+
+    public GameObject escapeMenuDisplay;
+    public bool escapeMenuDisplaed = false;
+
 
 
 
@@ -49,6 +54,10 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(health > 5)
+        {
+            health = 5;
+        }
         if(health > 0)
         {
             if (canMove)
@@ -76,6 +85,19 @@ public class Movement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && canDash)
             {
                 SceneManager.LoadScene("KonradTestScene");
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            escapeMenuDisplaed = !escapeMenuDisplaed;
+            if (escapeMenuDisplaed)
+            {
+                escapeMenuDisplay.SetActive(true);
+            }
+            else
+            {
+                escapeMenuDisplay.SetActive(false);
             }
         }
         
@@ -145,5 +167,16 @@ public class Movement : MonoBehaviour
         health -= 1;
         cinemachineImpulse.GenerateImpulseWithForce(cameraShakeForce);
         takeDamageSound.Play();
+    }
+
+    public void HealDamage(int amount)
+    {
+        health += amount;
+        healSound.Play();
+    }
+
+    public void ResumeGame()
+    {
+        escapeMenuDisplay.SetActive(false);
     }
 }
