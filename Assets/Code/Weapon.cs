@@ -76,6 +76,13 @@ public class Weapon : MonoBehaviour
             StartCoroutine(Cooldown());
             Destroy(collision.gameObject);
         }
+        else if (collision.gameObject.tag == "Egg")
+        {
+            impactSound.Play();
+            weaponOffset.Bounce();
+            StartCoroutine(Cooldown());
+            collision.gameObject.GetComponent<Egg>().Return();
+        }
         spriteRenderer.flipY = !spriteRenderer.flipY;
     }
 
