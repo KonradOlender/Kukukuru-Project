@@ -497,8 +497,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7870350032637973195}
   - component: {fileID: 4493900794863609088}
+  - component: {fileID: 3456593830264730731}
   - component: {fileID: 3486105178929526397}
-  - component: {fileID: 8495568211564835103}
   - component: {fileID: 6820137998688741207}
   - component: {fileID: 5570794599622722643}
   - component: {fileID: 4180163618289873505}
@@ -518,8 +518,8 @@ Transform:
   m_GameObject: {fileID: 4331451354165978755}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.63, y: 0, z: 0}
-  m_LocalScale: {x: 3.262, y: 0.2791, z: 1}
+  m_LocalPosition: {x: 1, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6551972404653321531}
@@ -568,8 +568,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.020617366, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4f642a6d4530aa340a273f5854429084, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -579,26 +579,9 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3486105178929526397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4331451354165978755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2195063f07679f948bfc420fceaaa92c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponOffset: {fileID: 2350422476434967926}
-  cooldownInSeconds: 1
-  cooldown: 0
-  cameraShakeForce: 0.2
-  impactSound: {fileID: 5570794599622722643}
-  comboSound: {fileID: 6820137998688741207}
-  bombSound: {fileID: 6820137998688741207}
---- !u!61 &8495568211564835103
+<<<<<<< Updated upstream
+=======
+--- !u!61 &3456593830264730731
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -636,14 +619,34 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.56, y: 0.32}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.56, y: 0.32}
   m_EdgeRadius: 0
+>>>>>>> Stashed changes
+--- !u!114 &3486105178929526397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331451354165978755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2195063f07679f948bfc420fceaaa92c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponOffset: {fileID: 2350422476434967926}
+  cooldownInSeconds: 1
+  cooldown: 0
+  cameraShakeForce: 0.2
+  impactSound: {fileID: 5570794599622722643}
+  comboSound: {fileID: 6820137998688741207}
+  bombSound: {fileID: 6820137998688741207}
 --- !u!82 &6820137998688741207
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1700,7 +1703,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 4}
+    oldSize: {x: 1, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
