@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -72,6 +73,10 @@ public class Movement : MonoBehaviour
         else
         {
             gameOverScreen.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Space) && canDash)
+            {
+                SceneManager.LoadScene("KonradTestScene");
+            }
         }
         
         //direction of sprite

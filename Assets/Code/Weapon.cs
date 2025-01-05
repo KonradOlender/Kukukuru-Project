@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     public WeaponOffset weaponOffset;
     public float cooldownInSeconds = 1;
     public bool cooldown = false;
+    public int comboCounter = 0;
 
     public float cameraShakeForce = 0.2f;
 
@@ -45,10 +46,20 @@ public class Weapon : MonoBehaviour
             bombSound.Play();
             weaponOffset.Bounce();
             StartCoroutine(Cooldown());
+            Destroy(collision.gameObject);
         }
         else if(collision.gameObject.tag == "Enemy")
         {
-            impactSound.pitch += 0.1f;
+            comboCounter++;
+            if (comboCounter % 5 > 0)
+            {
+                impactSound.pitch += 0.1f;
+            }
+            else
+            {
+                impactSound.pitch = 1;
+            }
+            
             impactSound.Play();
             //comboSound.pitch += 0.1f;
             //comboSound.Play();

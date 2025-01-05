@@ -13,7 +13,8 @@ public class EnemyMovement : MonoBehaviour
     public float cantMoveCooldownInSeconds;
     public GameObject player;
 
-    public float walkingRange;
+    public bool agroed = false;
+    public float agroRange;
 
 
     protected Rigidbody2D rb;
@@ -23,6 +24,12 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1,0,0,0.2f);
+        Gizmos.DrawSphere(this.transform.position, agroRange);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -30,10 +37,17 @@ public class EnemyMovement : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        if (Math.Abs(transform.position.x - player.transform.position.x) <= agroRange && Math.Abs(transform.position.y - player.transform.position.y) <= agroRange)
+        {
+            agroed = true;
+        }
+
+
         playerDirectionVector = (player.transform.position - transform.position).normalized;
         if (canMove == true)
         {
-            if (Math.Abs(transform.position.x - player.transform.position.x) <= walkingRange && Math.Abs(transform.position.y - player.transform.position.y) <= walkingRange)
+            if (agroed == true)
             {
                 rb.linearVelocity = playerDirectionVector * movementSpeed;
             }

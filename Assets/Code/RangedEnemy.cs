@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class RangedEnemy : EnemyMovement
@@ -26,7 +27,14 @@ public class RangedEnemy : EnemyMovement
 
     public void Shoot()
     {
-        GameObject spawnedBulet = Instantiate(bulet, transform.position, transform.rotation);
-        spawnedBulet.transform.rotation = Quaternion.FromToRotation(Vector3.right, player.transform.position - spawnedBulet.transform.position);
+        if (Math.Abs(transform.position.x - player.transform.position.x) <= agroRange && Math.Abs(transform.position.y - player.transform.position.y) <= agroRange)
+        {
+            GameObject spawnedBulet = Instantiate(bulet, transform.position, transform.rotation);
+            spawnedBulet.transform.rotation = Quaternion.FromToRotation(Vector3.right, player.transform.position - spawnedBulet.transform.position);
+        }
+        else
+        {
+            
+        }
     }
 }
