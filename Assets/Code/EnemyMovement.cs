@@ -16,7 +16,6 @@ public class EnemyMovement : MonoBehaviour
     public bool agroed = false;
     public float agroRange;
 
-
     protected Rigidbody2D rb;
     protected Vector2 playerDirectionVector;
     void Start()
@@ -35,6 +34,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if(health <= 0)
         {
+            player.GetComponent<Movement>().PlaySound();
             Destroy(this.gameObject);
         }
 

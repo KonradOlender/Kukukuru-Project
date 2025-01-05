@@ -31,6 +31,7 @@ public class Movement : MonoBehaviour
 
     public AudioSource takeDamageSound;
     public AudioSource healSound;
+    public AudioSource onEnemyDeathSound;
 
     public GameObject escapeMenuDisplay;
     public bool escapeMenuDisplaed = false;
@@ -178,5 +179,10 @@ public class Movement : MonoBehaviour
     public void ResumeGame()
     {
         escapeMenuDisplay.SetActive(false);
+    }
+
+    public void PlaySound()
+    {
+        onEnemyDeathSound.Play();
     }
 }

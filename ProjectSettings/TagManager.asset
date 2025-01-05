@@ -8,6 +8,7 @@ TagManager:
   - Bomb
   - Weapon
   - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX

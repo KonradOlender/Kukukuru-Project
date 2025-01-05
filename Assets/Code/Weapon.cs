@@ -40,7 +40,7 @@ public class Weapon : MonoBehaviour
             weaponOffset.Bounce();
             StartCoroutine(Cooldown());
         }
-        else if (collision.gameObject.tag == "Bomb")
+        else if (collision.gameObject.tag == "Bomb" )
         {
             weaponOffset.movement.TakeDamage();
             bombSound.Play();
@@ -68,6 +68,13 @@ public class Weapon : MonoBehaviour
             cinemachineImpulse.GenerateImpulseWithForce(cameraShakeForce);
             weaponOffset.Bounce();
             StartCoroutine(Cooldown());
+        }
+        else if(collision.gameObject.tag == "Bullet")
+        {
+            bombSound.Play();
+            weaponOffset.Bounce();
+            StartCoroutine(Cooldown());
+            Destroy(collision.gameObject);
         }
         spriteRenderer.flipY = !spriteRenderer.flipY;
     }
