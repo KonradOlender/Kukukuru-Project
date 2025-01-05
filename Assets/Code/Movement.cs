@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 {
     Vector2 velocity;
     Rigidbody2D rb;
+    SpriteRenderer sprite;
 
     public int health = 5;
     public bool canMove = true;
@@ -29,9 +30,15 @@ public class Movement : MonoBehaviour
 
     public AudioSource takeDamageSound;
 
+
+
+    public List<Sprite> spriteList;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         currentMoveSpeed = moveSpeed;
         cinemachineImpulse = GetComponent<CinemachineImpulseSource>();
@@ -67,7 +74,24 @@ public class Movement : MonoBehaviour
             gameOverScreen.SetActive(true);
         }
         
+        //direction of sprite
+        if (velocity.y < 0)
+            sprite.sprite = spriteList[0];
+        else if (velocity.y > 0)
+            sprite.sprite = spriteList[1];
+        
+        if (velocity.x > 0)
+        {
+            sprite.sprite = spriteList[2];
+            sprite.flipX = false;
+        }
+        else if (velocity.x < 0)
+        {
+            sprite.sprite = spriteList[2];
+            sprite.flipX = true;
+        }
     }
+
 
     private void FixedUpdate()
     {
