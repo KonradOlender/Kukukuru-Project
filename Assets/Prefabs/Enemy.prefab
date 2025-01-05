@@ -107,6 +107,7 @@ MonoBehaviour:
   canMove: 1
   cantMoveCooldownInSeconds: 0
   player: {fileID: 0}
+  walkingRange: 5
 --- !u!50 &6031171325236790783
 Rigidbody2D:
   serializedVersion: 5

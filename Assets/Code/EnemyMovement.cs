@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,10 @@ public class EnemyMovement : MonoBehaviour
     public bool canMove;
     public float cantMoveCooldownInSeconds;
     public GameObject player;
-    
+
+    public float walkingRange;
+
+
     protected Rigidbody2D rb;
     protected Vector2 playerDirectionVector;
     void Start()
@@ -28,7 +32,16 @@ public class EnemyMovement : MonoBehaviour
         }
         playerDirectionVector = (player.transform.position - transform.position).normalized;
         if (canMove == true)
-            rb.linearVelocity = playerDirectionVector * movementSpeed;
+        {
+            if (Math.Abs(transform.position.x - player.transform.position.x) <= walkingRange && Math.Abs(transform.position.y - player.transform.position.y) <= walkingRange)
+            {
+                rb.linearVelocity = playerDirectionVector * movementSpeed;
+            }
+            else
+            {
+                rb.linearVelocity = new Vector2(0, 0);
+            }
+        }
         else
             rb.linearVelocity = new Vector2(0, 0);
     }
