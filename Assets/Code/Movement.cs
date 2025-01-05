@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,34 +22,51 @@ public class Movement : MonoBehaviour
     public float dashingTime = 0.2f;
     public float dashingCooldown = 1f;
 
+    private CinemachineImpulseSource cinemachineImpulse;
+    public float cameraShakeForce = 0.2f;
+
+    public GameObject gameOverScreen;
+
+    public AudioSource takeDamageSound;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentMoveSpeed = moveSpeed;
+        cinemachineImpulse = GetComponent<CinemachineImpulseSource>();
+        gameOverScreen.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canMove)
-            velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if(health > 0)
+        {
+            if (canMove)
+                velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            else
+                velocity = new Vector2(0, 0);
+
+            if (Input.GetKeyDown(KeyCode.Space) && canDash)
+            {
+                StartCoroutine(Dash());
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+            {
+                currentMoveSpeed = sprintMoveSpeed;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift) && canDash)
+            {
+                currentMoveSpeed = moveSpeed;
+            }
+        }
         else
-            velocity = new Vector2(0, 0);
-
-        if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
-            StartCoroutine(Dash());
+            gameOverScreen.SetActive(true);
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-        {
-            currentMoveSpeed = sprintMoveSpeed;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift) && canDash)
-        {
-            currentMoveSpeed = moveSpeed;
-        }
+        
     }
 
     private void FixedUpdate()
@@ -79,6 +97,7 @@ public class Movement : MonoBehaviour
         //trail.emitting = false;
     }
 
+    //when we atack
     public void OnHitEffect()
     {
         StartCoroutine(AfterHitStop());
@@ -89,5 +108,13 @@ public class Movement : MonoBehaviour
         canMove = false;
         yield return new WaitForSeconds(cantMoveCooldownInSeconds);
         canMove = true;
+    }
+
+    //when we take damage
+    public void TakeDamage()
+    {
+        health -= 1;
+        cinemachineImpulse.GenerateImpulseWithForce(cameraShakeForce);
+        takeDamageSound.Play();
     }
 }

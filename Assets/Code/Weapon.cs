@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour
 
     public AudioSource impactSound;
     public AudioSource comboSound;
+    public AudioSource bombSound;
 
     private CinemachineImpulseSource cinemachineImpulse;
     private EnemyMovement enemyMovementScript;
@@ -31,8 +32,15 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Obstacle")
+        if (collision.gameObject.tag == "Obstacle")
         {
+            weaponOffset.Bounce();
+            StartCoroutine(Cooldown());
+        }
+        else if (collision.gameObject.tag == "Bomb")
+        {
+            weaponOffset.movement.TakeDamage();
+            bombSound.Play();
             weaponOffset.Bounce();
             StartCoroutine(Cooldown());
         }

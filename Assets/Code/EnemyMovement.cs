@@ -11,16 +11,12 @@ public class EnemyMovement : MonoBehaviour
     public bool canMove;
     public float cantMoveCooldownInSeconds;
     public GameObject player;
-
-    private CinemachineImpulseSource cinemachineImpulse;
-    public float cameraShakeForce = 0.2f;
-
+    
     private Rigidbody2D rb;
     private Vector2 playerDirectionVector;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        cinemachineImpulse = GetComponent<CinemachineImpulseSource>();
     }
 
     // Update is called once per frame
@@ -30,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        //playerDirectionVector = (player.transform.position - transform.position).normalized;
+        playerDirectionVector = (player.transform.position - transform.position).normalized;
         if (canMove == true)
             rb.linearVelocity = playerDirectionVector * movementSpeed;
         else
@@ -55,8 +51,8 @@ public class EnemyMovement : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Movement player = collision.gameObject.GetComponent<Movement>();
-            player.health -= 1;
-            cinemachineImpulse.GenerateImpulseWithForce(cameraShakeForce);
+            player.TakeDamage();
+            
         }
     }
 }
