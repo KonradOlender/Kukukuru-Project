@@ -204,7 +204,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 947738892}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadFirstLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -417,9 +417,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586c6f3bf8d5c5e43ae27dd4a29f0636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
+  menuName: 
   firstLevel: KonradTestScene
-  levelNames: []
+  nextLevel: 
 --- !u!4 &947738893
 Transform:
   m_ObjectHideFlags: 0
