@@ -12,8 +12,8 @@ public class EnemyMovement : MonoBehaviour
     public float cantMoveCooldownInSeconds;
     public GameObject player;
     
-    private Rigidbody2D rb;
-    private Vector2 playerDirectionVector;
+    protected Rigidbody2D rb;
+    protected Vector2 playerDirectionVector;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

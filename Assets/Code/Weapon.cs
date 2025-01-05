@@ -44,7 +44,7 @@ public class Weapon : MonoBehaviour
             weaponOffset.Bounce();
             StartCoroutine(Cooldown());
         }
-        else
+        else if(collision.gameObject.tag == "Enemy")
         {
             impactSound.pitch += 0.1f;
             impactSound.Play();
