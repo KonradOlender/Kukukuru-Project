@@ -19,6 +19,8 @@ public class Movement : MonoBehaviour
     private float currentMoveSpeed;
 
     public bool isDashing;
+    public bool isSpearing;
+    public bool isSpinning;
     public bool canDash = true;
     public float dashingPower = 24f;
     public float dashingTime = 0.2f;
@@ -40,6 +42,12 @@ public class Movement : MonoBehaviour
 
 
     public List<Sprite> spriteList;
+
+    public float spearSpeed;
+
+    public WeaponOffset weaponOfset;
+
+    public float spinningBonusSpeed;
 
 
     // Start is called before the first frame update
@@ -78,6 +86,46 @@ public class Movement : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.LeftShift) && canDash)
             {
                 currentMoveSpeed = moveSpeed;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Debug.Log("Spear");
+                isSpearing = true;
+                rb.linearVelocity = weaponOfset.transform.right * spearSpeed;
+            }
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                Debug.Log("Spear");
+                isSpearing = false;
+                //rb.linearVelocity = transform.right * spearSpeed;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                Debug.Log("Spin");
+                isSpinning = true;
+                if(weaponOfset.speed > 0)
+                {
+                    weaponOfset.speed += spinningBonusSpeed;
+                }
+                else if(weaponOfset.speed < 0)
+                {
+                    weaponOfset.speed -= spinningBonusSpeed;
+                }
+            }
+            if (Input.GetKeyUp(KeyCode.Mouse1))
+            {
+                Debug.Log("Spin");
+                isSpinning = false;
+                if (weaponOfset.speed > 0)
+                {
+                    weaponOfset.speed -= spinningBonusSpeed;
+                }
+                else if (weaponOfset.speed < 0)
+                {
+                    weaponOfset.speed += spinningBonusSpeed;
+                }
             }
         }
         else
@@ -124,7 +172,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isDashing)
+        if (isDashing || isSpearing)
         {
             return;
         }
