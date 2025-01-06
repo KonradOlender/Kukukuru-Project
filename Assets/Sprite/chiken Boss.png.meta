@@ -119,10 +119,10 @@ TextureImporter:
       name: chiken Boss_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 30
-        width: 198
-        height: 142
+        x: 12
+        y: 31
+        width: 196
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: chiken Boss_1
       rect:
         serializedVersion: 2
-        x: 292
-        y: 30
-        width: 203
-        height: 195
+        x: 219
+        y: 17
+        width: 201
+        height: 193
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,11 +159,77 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: chiken Boss_2
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 27
+        width: 144
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b28fc5c00943764299c3b48ac139cb3
+      internalID: 1467196147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chiken Boss_3
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 24
+        width: 144
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 311e80c74e4caa84a8d40555e32a63d3
+      internalID: -1627363353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chiken Boss_4
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 22
+        width: 144
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f67f021d8830e47a959253903daa0a
+      internalID: -968583485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 27aabb4b069b7a240939b6fc305d2504
     internalID: 0
     vertices: []
     indices: 
@@ -175,6 +241,9 @@ TextureImporter:
     nameFileIdTable:
       chiken Boss_0: -113329833686952674
       chiken Boss_1: -537915401803104562
+      chiken Boss_2: 1467196147
+      chiken Boss_3: -1627363353
+      chiken Boss_4: -968583485
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
