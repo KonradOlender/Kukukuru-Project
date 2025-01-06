@@ -37,7 +37,11 @@ public class Boss : MonoBehaviour
     public bool isDashing = false;
     public float dashingPower = 10;
 
+    public SpriteRenderer spriteRenderer;
+
     public GameObject winDisplay;
+
+    public List<Sprite> sprites;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,6 +50,7 @@ public class Boss : MonoBehaviour
         originFirePosition = shootingPoint.position;
         rb = GetComponent<Rigidbody2D>();
         state = 1;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -79,6 +84,7 @@ public class Boss : MonoBehaviour
 
         if(state == 1)
         {
+            spriteRenderer.sprite = sprites[0];
             if (canShoot)
             {
                 StartCoroutine(Shoot());
@@ -86,6 +92,7 @@ public class Boss : MonoBehaviour
         }
         else if(state == 2)
         {
+            spriteRenderer.sprite = sprites[1];
             if (canDash)
             {
                 StartCoroutine(Dash());
@@ -93,6 +100,7 @@ public class Boss : MonoBehaviour
         }
         else if (state == 3)
         {
+            spriteRenderer.sprite = sprites[2];
             if (canShoot)
             {
                 StartCoroutine(Shoot());
@@ -104,6 +112,7 @@ public class Boss : MonoBehaviour
         }
         else if (state == 4)
         {
+            spriteRenderer.sprite = sprites[3];
             if (canDash)
             {
                 StartCoroutine(Dash());
@@ -147,8 +156,11 @@ public class Boss : MonoBehaviour
 
         isDashing = false;
 
-        yield return new WaitForSeconds(dahsingCooldown);
+        yield return new WaitForSeconds(dahsingCooldown - 1);
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(1);
         canDash = true;
+        spriteRenderer.color = Color.white;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
