@@ -85,7 +85,8 @@ public class Movement : MonoBehaviour
             gameOverScreen.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Space) && canDash)
             {
-                SceneManager.LoadScene("KonradTestScene");
+                string currentSceneName = SceneManager.GetActiveScene().name;
+                SceneManager.LoadScene(currentSceneName);
             }
         }
 

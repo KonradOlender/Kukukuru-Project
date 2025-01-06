@@ -83,6 +83,13 @@ public class Weapon : MonoBehaviour
             StartCoroutine(Cooldown());
             collision.gameObject.GetComponent<Egg>().Return();
         }
+        else if(collision.gameObject.tag == "Boss")
+        {
+            impactSound.Play();
+            weaponOffset.Bounce();
+            StartCoroutine(Cooldown());
+            collision.gameObject.GetComponent<Boss>().health -= 1;
+        }
         spriteRenderer.flipY = !spriteRenderer.flipY;
     }
 

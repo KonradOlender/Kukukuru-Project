@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Egg : MonoBehaviour
 {
+    public Boss boss;
     public float speed;
     private Rigidbody2D rb;
     public Transform originTransform;
@@ -23,6 +24,11 @@ public class Egg : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Obstacles")
         {
+            Destroy(this.gameObject);
+        }
+        else if (collision.gameObject.tag == "Boss")
+        {
+            boss.firstStageHealth -= 1;
             Destroy(this.gameObject);
         }
     }

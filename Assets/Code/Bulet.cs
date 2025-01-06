@@ -17,14 +17,14 @@ public class Bulet : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<Movement>().TakeDamage();
             Destroy(this.gameObject);
         }
-        else if(collision.gameObject.tag == "Obstacles")
+        else if(collision.gameObject.tag == "Obstacle")
         {
             Destroy(this.gameObject);
         }

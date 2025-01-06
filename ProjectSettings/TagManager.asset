@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Bullet
   - Egg
+  - Boss
   layers:
   - Default
   - TransparentFX
