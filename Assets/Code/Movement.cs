@@ -36,7 +36,7 @@ public class Movement : MonoBehaviour
     public GameObject escapeMenuDisplay;
     public bool escapeMenuDisplaed = false;
 
-
+    public bool HealthBarReset = false;
 
 
     public List<Sprite> spriteList;
@@ -166,6 +166,7 @@ public class Movement : MonoBehaviour
     //when we take damage
     public void TakeDamage()
     {
+        HealthBarReset = true;
         health -= 1;
         cinemachineImpulse.GenerateImpulseWithForce(cameraShakeForce);
         takeDamageSound.Play();
@@ -173,6 +174,7 @@ public class Movement : MonoBehaviour
 
     public void HealDamage(int amount)
     {
+        HealthBarReset = true;
         health += amount;
         healSound.Play();
     }

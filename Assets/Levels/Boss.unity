@@ -10287,7 +10287,6 @@ MonoBehaviour:
   boss: {fileID: 0}
   speed: 10
   originTransform: {fileID: 0}
-  floor: {fileID: 0}
 --- !u!212 &402619373
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10430,6 +10429,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 370036310899501868, guid: b6d1789a2df176b49a8684c0d6d2135e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6241291643252296382, guid: b6d1789a2df176b49a8684c0d6d2135e, type: 3}
       propertyPath: m_Name
       value: MainCharacter0.2

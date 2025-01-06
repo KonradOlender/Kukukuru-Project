@@ -17,51 +17,70 @@ public class HealthBar : MonoBehaviour
     {
         if (player.health == 5)
         {
-            h1.SetActive(true);
-            h2.SetActive(true);
-            h3.SetActive(true);
-            h4.SetActive(true);
-            h5.SetActive(true);
+            if(player.HealthBarReset == true)
+            {
+                player.HealthBarReset = false;
+                h1.GetComponent<Hearts>().ResetSprites();
+                h2.GetComponent<Hearts>().ResetSprites();
+                h3.GetComponent<Hearts>().ResetSprites();
+                h4.GetComponent<Hearts>().ResetSprites();
+                h5.GetComponent<Hearts>().ResetSprites();
+            }
+            
         }
         else if (player.health == 4)
         {
-            h1.SetActive(true);
-            h2.SetActive(true);
-            h3.SetActive(true);
-            h4.SetActive(true);
-            h5.SetActive(false);
+            if (player.HealthBarReset == true)
+            {
+                player.HealthBarReset = false;
+                h1.GetComponent<Hearts>().ResetSprites();
+                h2.GetComponent<Hearts>().ResetSprites();
+                h3.GetComponent<Hearts>().ResetSprites();
+                h4.GetComponent<Hearts>().ResetSprites();
+                h5.GetComponent<Hearts>().TriggerAnim();
+            }
         }
         else if (player.health == 3)
         {
-            h1.SetActive(true);
-            h2.SetActive(true);
-            h3.SetActive(true);
-            h4.SetActive(false);
-            h5.SetActive(false);
+            if (player.HealthBarReset == true)
+            {
+                player.HealthBarReset = false;
+                h1.GetComponent<Hearts>().ResetSprites();
+                h2.GetComponent<Hearts>().ResetSprites();
+                h3.GetComponent<Hearts>().ResetSprites();
+                h4.GetComponent<Hearts>().TriggerAnim();
+            }
         }
         else if (player.health == 2)
         {
-            h1.SetActive(true);
-            h2.SetActive(true);
-            h3.SetActive(false);
-            h4.SetActive(false);
-            h5.SetActive(false);
+            if (player.HealthBarReset == true)
+            {
+                player.HealthBarReset = false;
+                h1.GetComponent<Hearts>().ResetSprites();
+                h2.GetComponent<Hearts>().ResetSprites();
+                h3.GetComponent<Hearts>().TriggerAnim();
+            }
         }
         else if (player.health == 1)
         {
-            h1.SetActive(true);
-            h2.SetActive(false);
-            h3.SetActive(false);
-            h4.SetActive(false);
-            h5.SetActive(false);
+            if (player.HealthBarReset == true)
+            {
+                player.HealthBarReset = false;
+                h1.GetComponent<Hearts>().ResetSprites();
+                h2.GetComponent<Hearts>().TriggerAnim();
+            }
         }
         else if (player.health == 0)
         {
-            h1.SetActive(false);
-            h2.SetActive(false);
-            h3.SetActive(false);
-            h4.SetActive(false);
-            h5.SetActive(false);
+            if (player.HealthBarReset == true)
+            {
+                player.HealthBarReset = false;
+                h1.SetActive(false);
+                h2.SetActive(false);
+                h3.SetActive(false);
+                h4.SetActive(false);
+                h5.SetActive(false);
+            }
         }
         text.text = player.health.ToString();
     }
