@@ -6,6 +6,8 @@ public class Egg : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     public Transform originTransform;
+
+    private GameObject camera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
