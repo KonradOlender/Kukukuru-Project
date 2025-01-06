@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/KonradTestScene.unity
-    guid: 80eb53a1f42a8214b954b94302e1f377
-  - enabled: 1
     path: Assets/Levels/Menu.unity
     guid: d29ac3e76e169b34bbfe6c7967896f47
+  - enabled: 1
+    path: Assets/Scenes/KonradTestScene.unity
+    guid: 80eb53a1f42a8214b954b94302e1f377
   - enabled: 1
     path: Assets/Levels/Level1.unity
     guid: a451ce2fa7ff13742b8e25f156a68ff4
